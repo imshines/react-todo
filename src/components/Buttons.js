@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
     font-size: 1rem;
-    padding: 0rem 1rem;
+    padding: 0.5rem 1rem;
     background-color: ${props => props.colorProp};
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    // box-shadow: 0px 2px 5px #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,8 +16,8 @@ export const Button = styled.button`
     }
 `
 export const IconButton = styled.a`
-    width: 50px;
-    height: 50px;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;

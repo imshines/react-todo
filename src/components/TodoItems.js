@@ -2,29 +2,23 @@ import React from 'react';
 import { ReactComponent as DelIcon } from '../assets/bin.svg'
 import { IconButton } from './Buttons';
 
-function TodoItems(props) {
-
+function TodoItems({ datas }) {
     return (
         <div className="items-container">
-            <div className="card">
-                <h2 className="card-title">Eat!</h2>
-                <IconButton colorProp="tomato" className="del-btn">
-                    <DelIcon style={delStyle} />
-                </IconButton>
-            </div>
-            <div className="card">
-                <h2 className="card-title">Sleep!</h2>
-                <IconButton colorProp="tomato" className="del-btn">
-                    <DelIcon style={delStyle} />
-                </IconButton>
-            </div>
-            <div className="card">
-                <h2 className="card-title">Code!</h2>
-                <IconButton colorProp="tomato" className="del-btn">
-                    <DelIcon style={delStyle} />
-                </IconButton>
-            </div>
-        </div>
+            {
+                datas.map(item => <div className="card" key={item.id}>
+                    <h2 className="card-title">{item.id}. {item.task}</h2>
+                    <span
+                        style={{
+                            color: item.priority === 'Low' ? 'red' : item.priority === 'Moderate' ? 'orange' : 'green'
+                        }}
+                        className="card-title">{item.priority}</span>
+                    <IconButton colorProp="tomato" className="del-btn">
+                        <DelIcon style={delStyle} />
+                    </IconButton>
+                </div>)
+            }
+        </div >
     );
 }
 
