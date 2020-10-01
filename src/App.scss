@@ -9,26 +9,33 @@
   justify-content: space-evenly;
 }
 
+.items-container {
+  width: 95%;
+  margin: auto;
+}
+
 .card {
   padding: 1.5rem 1rem;
   border: 1px solid #ececec;
   border-radius: 5px;
   margin: 1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   &-title {
-    flex: 1;
+    word-wrap: break-word;
   }
-}
-
-.priority {
-  margin-left: 10px;
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .input-container {
   display: flex;
   justify-content: center;
+}
+
+.priority {
+  margin-left: 10px;
 }
 
 .todo-input {
@@ -37,17 +44,12 @@
   border: 1px solid #cccccc;
 }
 
-.items-container {
-  width: 90%;
-  margin: auto;
-}
-
 @media only screen and (min-width: 600px) {
   .items-container {
-    width: 80vw;
+    width: 90vw;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 1fr 1fr;
     column-gap: 15px;
   }

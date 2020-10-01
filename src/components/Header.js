@@ -1,11 +1,26 @@
 import React from 'react';
 import { Button } from './Buttons';
+import { ThemeContext } from '../context/themeContext';
+function Header() {
 
-function Header(props) {
+    const { toggle, dark } = React.useContext(ThemeContext)
+
     return (
         <div className="header">
-            <h1 className="header-title">Notes Taker</h1>
-            <Button colorProp='#2fce10' hover="#222200" className="header-toggle">Theme</Button>
+            <h1 className="header-title">Awesome Notes</h1>
+            <Button
+                border={true}
+                hover={
+                    !dark ? "#fff" : '#2f2f2f'
+                }
+                className="header-toggle"
+                onClick={toggle}
+                style={{
+                    color: !dark ? '#000' : '#fff'
+                }}
+            >
+                {!dark ? 'Dark' : 'Light'}
+            </Button>
         </div>
     );
 }

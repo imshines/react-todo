@@ -1,22 +1,36 @@
 import React from 'react';
 import { ReactComponent as DelIcon } from '../assets/bin.svg'
+import { TodoContext } from '../context/todoItemsContext';
 import { IconButton } from './Buttons';
 
-function TodoItems({ datas }) {
+function TodoItems() {
+
+    const { todos, removeTodo } = React.useContext(TodoContext);
+
+    console.log(todos);
+
     return (
         <div className="items-container">
             {
-                datas.map(item => <div className="card" key={item.id}>
-                    <h2 className="card-title">{item.id}. {item.task}</h2>
-                    <span
-                        style={{
-                            color: item.priority === 'Low' ? 'red' : item.priority === 'Moderate' ? 'orange' : 'green'
-                        }}
-                        className="card-title">{item.priority}</span>
-                    <IconButton colorProp="tomato" className="del-btn">
-                        <DelIcon style={delStyle} />
-                    </IconButton>
-                </div>)
+                todos.map(todo =>
+                    <div className="card" key={todo.id}>
+                        <h2 className="card-title">{todo.todo}</h2>
+                        <div className="card-footer">
+                            <span
+                                style={{
+                                    color: todo.priority === 'low' ? 'green' : todo.priority === 'moderate' ? 'orange' : 'red'
+                                }}
+                                className="card-priority">{todo.priority[0].toUpperCase() + todo.priority.slice(1)}</span>
+                            <IconButton
+                                colorProp="tomato"
+                                className="card-btn"
+                                onClick={() => removeTodo(todo.id)}
+                            >
+                                <DelIcon style={delStyle} />
+                            </IconButton>
+                        </div>
+                    </div>
+                )
             }
         </div >
     );

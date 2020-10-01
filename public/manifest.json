@@ -1,6 +1,6 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Notes Taker app built using React with Hooks and Context API, notes app built using React 16.13.1",
   "icons": [
     {
       "src": "favicon.ico",

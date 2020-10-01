@@ -3,16 +3,20 @@ import './App.scss'
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoItems from './components/TodoItems';
-
-import datas from './constants/data.json';
+import { ThemeContext } from './context/themeContext';
 
 function App() {
 
+  const { theme } = React.useContext(ThemeContext);
+
   return (
-    <div className="container">
+    <div className="container" style={{
+      color: theme.color,
+      backgroundColor: theme.backgroundColor
+    }}>
       <Header />
       <TodoInput />
-      <TodoItems datas={datas} />
+      <TodoItems />
     </div>
   );
 }
