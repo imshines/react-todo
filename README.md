@@ -13,3 +13,8 @@
 - Change theme 🎨
 - Add Priority to your task ⚡
 - Tasks are stored using localStorage 😎
+
+### How to use
+
+As usual `git clone https://github.com/imshines/react-todo.git` <br />
+and `npm install`
